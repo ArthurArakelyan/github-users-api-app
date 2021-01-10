@@ -1,0 +1,37 @@
+.create {
+  width: 32%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 20px;
+  border-radius: 7px;
+  padding: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 5px white;
+}
+.create__heading {
+  margin-top: 5px;
+}
+.create__user {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  font-size: 120px;
+  font-weight: 500;
+  padding: 0px 30px;
+  border-radius: 50%;
+  margin: 20px 0;
+  background-color: orange;
+  transition: background-color .4s ease, box-shadow .4s ease-in-out;
+}
+.create__user:hover {
+  cursor: pointer;
+  background-color: rgba(255, 166, 0, 0.8);
+  box-shadow: 0 0 6px darkorange;
+}
+.create__user:active {
+  box-shadow: 0 0 7px darkorange;
+  background-color: rgba(255, 166, 0, 0.65);
+}

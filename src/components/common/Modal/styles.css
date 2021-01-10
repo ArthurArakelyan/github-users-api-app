@@ -1,0 +1,108 @@
+.ReactModal__Content {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all .4s ease-in-out;
+}
+.ReactModal__Content--after-open {
+  opacity: 1;
+  transform: translateY(130px);
+}
+.ReactModal__Content--before-close {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.ReactModal__Overlay {
+  background-color: rgba(0, 0, 0, 0) !important;
+  transition: background-color .4s ease-in-out;
+}
+.ReactModal__Overlay--after-open {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+}
+.ReactModal__Overlay--before-close {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 5px;
+  border-bottom: 1px gray solid;
+}
+.modal__title {
+  font-size: 24px;
+  transition: font-size .4s ease-in-out;
+}
+
+.modal__body {
+  padding: 10px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+.modal__form {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.modal__editting_input {
+  width: 70%;
+  padding: 3px;
+}
+.modal__editting_type {
+  margin-top: 10px;
+}
+.modal__editting_avatarUrl {
+  width: 70%;
+  padding: 3px;
+  margin-top: 10px;
+}
+.modal__creating_input {
+  width: 70%;
+  padding: 3px;
+}
+.modal__creating_type {
+  margin-top: 10px;
+}
+.modal__creating_avatarUrl {
+  width: 70%;
+  padding: 3px;
+  margin-top: 10px;
+}
+
+.modal__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 5px;
+  border-top: 1px gray solid;
+  width: 100%;
+}
+.modal__action {
+  outline: none;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  padding: 5px 7px;
+  cursor: pointer;
+  transition: background-color .4s ease-in-out;
+}
+.modal__ok {
+  margin-right: 10px;
+  background-color: #28A745;
+}
+.modal__ok:hover {
+  background-color: #28a746c2;
+}
+.modal__close {
+  background-color: #DC3545;
+}
+.modal__close:hover {
+  background-color: #DC3545c2;
+}

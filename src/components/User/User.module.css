@@ -1,0 +1,45 @@
+.user {
+  width: 32%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin-top: 20px;
+  border-radius: 7px;
+  padding: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 5px white;
+}
+.user__link {
+  width: 100%;
+  margin-top: 10px;
+}
+.user__img {
+  width: 100%;
+  border-radius: 3px;
+}
+.user__actions {
+  margin-top: 5px;
+}
+.user__action {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  padding: 5px 7px;
+  transition: background-color .4s ease-in-out;
+}
+.user__edit {
+  background-color: #007BFF;
+}
+.user__edit:hover {
+  background-color: #007BFFc2;
+}
+.user__remove {
+  margin-left: 10px;
+  background-color: #DC3545;
+}
+.user__remove:hover {
+  background-color: #DC3545c2;
+}
