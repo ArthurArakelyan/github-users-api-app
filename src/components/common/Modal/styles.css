@@ -57,6 +57,10 @@
 }
 .modal__editting_type {
   margin-top: 10px;
+  display: flex;
+}
+.modal__editting_type p {
+  margin-right: 5px;
 }
 .modal__editting_avatarUrl {
   width: 70%;
@@ -66,9 +70,27 @@
 .modal__creating_input {
   width: 70%;
   padding: 3px;
+  outline: none;
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 3px;
+  transition: border-color .4s ease-in-out, box-shadow .4s ease-in-out;
+}
+.modal__creating_input:focus {
+  box-shadow: 0 0 3px black;
+}
+.modal__creating_input.error {
+  border-color:red;
+}
+.modal__creating_input.error:focus {
+  box-shadow: 0 0 3px red;
 }
 .modal__creating_type {
   margin-top: 10px;
+  display: flex;
+}
+.modal__creating_type p {
+  margin-right: 5px;
 }
 .modal__creating_avatarUrl {
   width: 70%;

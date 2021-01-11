@@ -9,9 +9,7 @@
   padding: 5px;
   border: 1px solid rgba(255, 255, 255, 0.6);
   box-shadow: 0 0 5px white;
-}
-.create__heading {
-  margin-top: 5px;
+  transition: width .4s ease-in-out;
 }
 .create__user {
   border: none;
@@ -34,4 +32,16 @@
 .create__user:active {
   box-shadow: 0 0 7px darkorange;
   background-color: rgba(255, 166, 0, 0.65);
+}
+
+@media only screen and (max-width: 850px) {
+  .create {
+    width: 48%;
+  }
+}
+
+@media only screen and (max-width: 552px) {
+  .create {
+    width: 95%;
+  }
 }

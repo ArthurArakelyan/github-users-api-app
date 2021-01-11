@@ -15,11 +15,10 @@ const Modal = (
     edittingModalSubmit,
     edittingUserTypeChange,
     edittingUserAvatarChange,
-    creatingUser,
-    creatingValueChange,
-    creatingTypeChange,
-    creatingAvatarUrlChange,
-    creatingUserSubmit
+    newUsername,
+    usernamePlaceholder,
+    newUsernameChange,
+    newUserSubmit,
   }
 ) => {
   const edittingContent = (
@@ -39,6 +38,7 @@ const Modal = (
         />
 
         <div className="modal__editting_type">
+          <p>Type:</p>
           <label>
             User
             <input type="radio" name="type" checked={edittingUser.type === 'User'} value="User" onChange={edittingUserTypeChange} />
@@ -64,47 +64,16 @@ const Modal = (
     <ModalContent
       title='Creating User'
       close={modalClose}
-      submit={creatingUserSubmit}
+      submit={newUserSubmit}
     >
-      <form className="modal__form" onSubmit={creatingUserSubmit}>
+      <form className="modal__form" onSubmit={newUserSubmit}>
         <input
           type="text"
-          placeholder="Enter Username..."
-          className="modal__creating_input"
-          value={creatingUser.login}
-          onChange={creatingValueChange}
+          placeholder={usernamePlaceholder}
+          className={`modal__creating_input ${usernamePlaceholder === 'User is not found' ? 'error' : ''}`}
+          value={newUsername}
+          onChange={newUsernameChange}
           autoFocus
-        />
-
-        <div className="modal__creating_type">
-          <label>
-            User
-            <input
-              type="radio"
-              name="type"
-              checked={creatingUser.type === 'User'}
-              value="User"
-              onChange={creatingTypeChange}
-            />
-          </label>
-          <label>
-            Admin
-            <input
-              type="radio"
-              value="Admin"
-              checked={creatingUser.type === 'Admin'}
-              onChange={creatingTypeChange}
-              name="type"
-            />
-          </label>
-        </div>
-
-        <input
-          type="text"
-          className="modal__creating_avatarUrl"
-          placeholder="Avatar URL"
-          value={creatingUser.avatar_url}
-          onChange={creatingAvatarUrlChange}
         />
       </form>
     </ModalContent>

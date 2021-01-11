@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {nanoid} from 'nanoid';
+// import {nanoid} from 'nanoid';
 
 import User from './components/User';
 import CreateUser from './components/CreateUser';
@@ -7,15 +7,17 @@ import Modal from './components/common/Modal';
 
 const App = () => {
   const [users, setUsers] = useState(null);
+  const [edittingUser, setEdittingUser] = useState({});
+  const [newUsername, setNewUsername] = useState('');
+  const [usernamePlaceholder, setUsernamePlaceholder] = useState('Enter Username...');
+  const [error, setError] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [modalType, setModalType] = useState(null);
-  const [creatingUser, setCreatingUser] = useState({});
-  const [edittingUser, setEdittingUser] = useState({});
 
   useEffect(() => {
     fetch('https://api.github.com/users')
       .then(res => res.json())
-      .then(users => setUsers(users));
+      .then(users => setUsers(users.slice(0, 3)));
   }, []);
 
   const userDelete = (id) => {
@@ -27,7 +29,7 @@ const App = () => {
     setModalIsOpen(true);
     setModalType('edit');
   }
-  
+
   const edittingValueChange = (e) => {
     setEdittingUser((user) => {
       return {
@@ -63,78 +65,75 @@ const App = () => {
     });
   }
 
-  const userCreate = () => {
-    setCreatingUser({
-      id: nanoid(),
-      login: '',
-      type: 'User',
-      avatar_url: ''
-    });
-
-    setModalType('create');
-    setModalIsOpen(true);
+  const newUsernameChange = (e) => {
+    setNewUsername(e.target.value);
+    setUsernamePlaceholder('Enter Username...');
   }
 
-  const creatingValueChange = (e) => {
-    setCreatingUser((user) => {
-      return {
-        ...user,
-        login: e.target.value
-      }
-    });
-  }
-
-  const creatingTypeChange = (e) => {
-    setCreatingUser((user) => {
-      return {
-        ...user,
-        type: e.target.value
-      }
-    });
-  }
-
-  const creatingAvatarUrlChange = (e) => {
-    setCreatingUser((user) => {
-      return {
-        ...user,
-        avatar_url: e.target.value
-      }
-    });
-  }
-
-  const creatingUserSubmit = (e) => {
+  const newUserSubmit = async (e) => {
     e.preventDefault();
-    setUsers((user) => {
-      return [creatingUser, ...user];
-    });
+    if (newUsername.trim()) {
+      fetch(`https://api.github.com/users/${newUsername}`)
+        .then(res => {
+          if (!res.ok) {
+            throw new Error(`Could not fetch, received ${res.status}`);
+          }
 
-    setModalIsOpen(false);
+          return res.json();
+        })
+        .then(user => {
+          const checkedUsers = users.filter(item => {
+            if (item.login === user.login) {
+              return;
+            }
+
+            return item;
+          });
+
+          setUsers([user, ...checkedUsers]);
+          setError(false);
+          setNewUsername('');
+          setModalIsOpen(false);
+        })
+        .catch(() => {
+          setError(true);
+          setUsernamePlaceholder('User is not found');
+          setNewUsername('');
+        });
+    }
   }
 
   return (
     <div className="App">
       <div className="wrapper">
         <div className="users">
-          <CreateUser 
-            userCreate={userCreate}
+          <CreateUser
+            userCreate={() => {
+              setModalType('create');
+              setModalIsOpen(true);
+            }}
           />
 
           {users ? users.map(user => {
-            return (
-              <User
-                key={user.id}
-                id={user.id}
-                name={user.login}
-                type={user.type}
-                avatarUrl={user.avatar_url}
-                userDelete={userDelete}
-                userEdit={userEdit}
-              />
-            )
+            if (user) {
+              return (
+                <User
+                  key={user.id}
+                  id={user.id}
+                  name={user.login}
+                  type={user.type}
+                  avatarUrl={user.avatar_url}
+                  userDelete={userDelete}
+                  userEdit={userEdit}
+                />
+              );
+            }
+
+            return null;
           }) : null}
         </div>
 
-        <Modal 
+        <Modal
           modalIsOpen={modalIsOpen}
           modalType={modalType}
           modalClose={() => setModalIsOpen(false)}
@@ -143,11 +142,10 @@ const App = () => {
           edittingModalSubmit={edittingModalSubmit}
           edittingUserTypeChange={edittingUserTypeChange}
           edittingUserAvatarChange={edittingUserAvatarChange}
-          creatingUser={creatingUser}
-          creatingValueChange={creatingValueChange}
-          creatingTypeChange={creatingTypeChange}
-          creatingAvatarUrlChange={creatingAvatarUrlChange}
-          creatingUserSubmit={creatingUserSubmit}
+          newUsername={newUsername}
+          usernamePlaceholder={usernamePlaceholder}
+          newUsernameChange={newUsernameChange}
+          newUserSubmit={newUserSubmit}
         />
       </div>
     </div>

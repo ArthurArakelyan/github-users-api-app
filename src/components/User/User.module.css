@@ -9,6 +9,7 @@
   padding: 5px;
   border: 1px solid rgba(255, 255, 255, 0.6);
   box-shadow: 0 0 5px white;
+  transition: width .4s ease-in-out;
 }
 .user__link {
   width: 100%;
@@ -42,4 +43,16 @@
 }
 .user__remove:hover {
   background-color: #DC3545c2;
+}
+
+@media only screen and (max-width: 850px) {
+  .user {
+    width: 48%;
+  }
+}
+
+@media only screen and (max-width: 552px) {
+  .user {
+    width: 95%;
+  }
 }
