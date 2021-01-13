@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 import styles from './User.module.css';
 
@@ -8,9 +9,9 @@ const User = ({ id, name, type, avatarUrl, userDelete, userEdit }) => {
       <h2 className={styles.user__name}>Name: {name}</h2>
       <p className={styles.user__type}>Type: {type}</p>
 
-      <a href={`https://github.com/${name}`} target="_blank" rel="noreferrer" className={styles.user__link}>
+      <Link to={name} className={styles.user__link}>
         <img src={avatarUrl} alt="User" className={styles.user__img} />
-      </a>
+      </Link>
 
       <div className={styles.user__actions}>
         <button

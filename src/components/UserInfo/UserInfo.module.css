@@ -1,0 +1,142 @@
+.user__info {
+  padding: 30px 0;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.user__info_back {
+  position: absolute;
+  top: 0.5%;
+  left: 1%;
+  font-size: 24px;
+  font-weight: 700;
+}
+.user__info_img_container {
+  width: 30%;
+}
+.user__info_img {
+  width: 90%;
+  border-radius: 20px;
+}
+.user__info__followers_container {
+  width: 90%;
+  margin-top: 5px;
+}
+.user__info_following {
+  margin-left: 10px;
+}
+
+.user__info_container {
+  width: 50%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.user__info_name {
+  margin-top: 3px;
+}
+.user__info_container p {
+  margin-top: 5px;
+}
+.user__info_link {
+  border: 1px solid white;
+  margin-top: 20px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-weight: 700;
+  transition: box-shadow .4s ease-in-out, color .4s ease-in-out, background-color .4s ease-in-out;
+}
+.user__info_link:hover {
+  box-shadow: 0 0 3px white;
+  color: black;
+  background-color: white;
+}
+.user__info_link:active {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.loader {
+  position: absolute;
+  top: 35%;
+  left: 45%;
+}
+
+@media only screen and (max-width: 1240px) {
+  .user__info {
+    align-items: flex-start;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 860px) {
+  .user__info_img_container {
+    width: 35%;
+  }
+
+  .user__info__followers_container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+  .user__info_following {
+    margin-left: 0;
+    margin-top: 5px;
+  }
+}
+
+@media only screen and (max-width: 562px) {
+  .user__info_img_container {
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: 456px) {
+  .user__info {
+    padding: 40px 0;
+  }
+  .user__info_img_container {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  .user__info {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .user__info_img_container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .user__info_img {
+    width: 50%;
+  }
+  .user__info__followers_container {
+    width: 50%;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  .user__info_following {
+    margin: 0;
+  }
+
+  .user__info_container {
+    margin-top: 20px;
+    width: 50%;
+    justify-content: center;
+  }
+  .user__info_link {
+    margin-top: 15px;
+    text-align: center;
+    width: 100%;
+  }
+}

@@ -1,0 +1,18 @@
+.users {
+  padding: 45px 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 850px) {
+  
+}
+
+@media only screen and (max-width: 552px) {
+  .users {
+    flex-direction: column;
+  }
+}

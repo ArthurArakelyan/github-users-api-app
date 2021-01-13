@@ -23,23 +23,9 @@ a {
   margin: 0 auto;
   transition: width .4s ease-in-out;
 }
-.users {
-  padding: 50px 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
 
 @media only screen and (max-width: 1200px) {
   .wrapper {
-    width: 98%;
-  }
-}
-
-@media only screen and (max-width: 552px) {
-  .users {
-    flex-direction: column;
+    width: 96%;
   }
 }

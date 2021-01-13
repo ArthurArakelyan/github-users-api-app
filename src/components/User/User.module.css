@@ -1,14 +1,14 @@
 .user {
-  width: 32%;
+  width: 30%;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  margin-top: 20px;
+  margin-top: 25px;
   border-radius: 7px;
-  padding: 5px;
+  padding: 10px;
   border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 0 5px white;
+  box-shadow: 0 0 3.5px white;
   transition: width .4s ease-in-out;
 }
 .user__link {
