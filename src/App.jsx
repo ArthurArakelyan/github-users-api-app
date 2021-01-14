@@ -9,10 +9,7 @@ const App = () => {
     <div className="App">
       <div className="wrapper">
         <Route exact path="/" component={Users} />
-
-        <Route path="/:id" render={({match}) => {
-          return <UserInfo name={match.params.id} />;
-        }} />
+        <Route path="/:id" component={UserInfo} />
       </div>
     </div>
   );

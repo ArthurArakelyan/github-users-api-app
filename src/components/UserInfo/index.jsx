@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import Spinner from '../common/Spinner';
 
 import styles from './UserInfo.module.css';
 
-const UserInfo = ({ name }) => {
+const UserInfo = () => {
   const [user, setUser] = useState(null);
+  const {id} = useParams();
 
   useEffect(() => {
-    fetch(`https://api.github.com/users/${name}`)
+    fetch(`https://api.github.com/users/${id}`)
       .then(res => res.json())
       .then(user => setUser(user));
-  }, [name]);
+  }, [id]);
 
-  console.log(user);
   if (user) {
     if (user.login) {
       return (
