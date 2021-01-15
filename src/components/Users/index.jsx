@@ -21,7 +21,7 @@ const Users = () => {
         .then(res => res.json())
         .then(users => setUsers(users.slice(0, 3)));
     }
-  }, []);
+  });
 
   const userDelete = (id) => {
     setUsers(users.filter(user => user.id !== id));
