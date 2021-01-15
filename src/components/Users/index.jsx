@@ -21,7 +21,7 @@ const Users = () => {
         .then(res => res.json())
         .then(users => setUsers(users.slice(0, 3)));
     }
-  });
+  }, [users, setUsers]);
 
   const userDelete = (id) => {
     setUsers(users.filter(user => user.id !== id));
@@ -116,7 +116,7 @@ const Users = () => {
             setModalType('create');
             setModalIsOpen(true);
           }}
-          deleteAllUsers={() => setUsers(null)}
+          deleteAllUsers={() => setUsers([])}
         />
 
         {users ? users.map(user => {
